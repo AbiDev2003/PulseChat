@@ -2,12 +2,13 @@
 
 PulseChat is a real-time anonymous chatroom application built using Express and WebSockets (`express-ws`). The platform enables instant topic-based conversations without requiring user accounts or identity storage.
 
-## 📸 Screenshots
+## 🖥️ Website UI
 
 <!-- Add your website screenshots here -->
-![Homepage](./screenshots/homepage.png)
-![Chat Room](./screenshots/chatroom.png)
-![Mobile View](./screenshots/mobile.png)
+![Homepage](./static/images/homepage.png)
+![Chat Rooms](./static/images/rooms.png)
+![Chat Room Interface](./static/images/chatroom.png)
+![Sidebar](./static/images/collapseSidebar.png)
 
 ---
 
@@ -197,11 +198,11 @@ http://localhost:3000
 
 ---
 
-## 📧 Contact
+## 📧 Contact and links
 
 * **Email**: 2003abinashdash@gmail.com
 * **LinkedIn**: AbiDev2003
-
+* 🔗 Website Live Link: [PulseChat](https://pulsechat-dp0u.onrender.com/)
 ---
 
 ## 🙏 Acknowledgments
