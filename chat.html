@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>GroupChat</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+  <div class="chat-header">
+    <div class="room-section">
+      <div class="room-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-5 h-5" data-fg-d3bl5="0.8:4.7132:/src/app/App.tsx:75:13:2340:29:e:Users::::::DV8M"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      </div>
+      <div class="room-text">
+        <div id="roomTitle">ChatRoom</div>
+        <div id="memberCount">0 members online</div>
+      </div>
+    </div>
+    <button id="membersToggle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 -5 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-5 h-5" data-fg-d3bl15="0.8:4.7132:/src/app/App.tsx:87:11:2828:29:e:Users::::::DV8M"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      Members (<span id="memberCountBtn">0</span>)
+    </button>
+  </div>
+
+  <div class="members-sidebar" id="membersSidebar">
+    <div class="sidebar-header">
+      <span>Room Members</span>
+      <button id="closeSidebar">✕</button>
+    </div>
+    <ul id="membersList"></ul>
+  </div>
+
+
+  <ul id="messages"></ul>
+
+  <form id="msg-form">
+    <input id="messageInput" autocomplete="off" />
+    <button type="button" id="jokeBtn">😂 Joke</button>
+    <button>
+      Send
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 -4 24 24" fill="white" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-4 h-4" data-fg-d3bl47="0.8:4.7132:/src/app/App.tsx:132:17:4708:28:e:Send::::::dtm"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+    </button>
+  </form>
+
+
+  <script src="https://unpkg.com/jquery"></script>
+  <script src="/js/chat.js"></script>
+
+</body>
+
+</html>

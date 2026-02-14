@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+  <head>
+    <title>PulseChat</title>
+
+    <!-- Tailwind -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="bg-black text-white min-h-screen relative overflow-x-hidden">
+    <canvas id="animated-canvas" class="fixed inset-0 w-full h-full"></canvas>
+    <div class="relative z-10">
+      <!-- NAVBAR -->
+      <header
+        class="border-b border-white/10 sticky top-0 backdrop-blur-xl bg-black/30"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/50"
+            >
+              <i data-lucide="message-square" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h1 class="text-xl">PulseChat</h1>
+              <p class="text-xs text-gray-400">Anonymous Chatrooms</p>
+            </div>
+          </div>
+
+          <nav class="flex gap-6 text-sm text-gray-300 items-center">
+            <a href="#about" class="hover:text-white">About</a>
+            <a href="#" onclick="openPrivacy()" class="hover:text-white"
+              >Privacy</a
+            >
+            <a href="#contact" class="hover:text-white">Contact</a>
+
+            <!-- 🔥 NEW BUTTON -->
+            <button
+              href=""
+              onclick="openCreateRoom()"
+              class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white hover:scale-105 transition-all duration-200"
+            >
+              + Create Room
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <section class="max-w-7xl mx-auto px-6 pt-20 text-center">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 text-blue-400 rounded-full mb-6 border border-blue-500/20"
+        >
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span class="text-sm">Real-time WebSocket Chat</span>
+        </div>
+
+        <h2 class="text-5xl md:text-6xl mb-4 tracking-tight">
+          Join the
+          <span
+            class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >Conversation</span
+          >
+        </h2>
+
+        <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+          PulseChat is a fully anonymous chatroom platform. No accounts, no
+          tracking — just conversations.
+        </p>
+
+        <div
+          class="bg-white/5 border border-white/10 rounded-xl p-4 text-sm text-gray-400 inline-block"
+        >
+          🔒 No identity is stored or revealed
+        </div>
+      </section>
+
+      <section
+        id="about"
+        class="max-w-7xl mx-auto px-6 py-20 text-gray-300 text-center"
+      >
+        <h3 class="text-3xl text-white mb-4">About PulseChat</h3>
+        <p class="text-gray-400 max-w-3xl mx-auto">
+          PulseChat is a fully anonymous real-time chatroom platform designed
+          for open conversations. No accounts. No tracking. No identity storage.
+          Just pure discussions.
+        </p>
+      </section>
+
+      <!-- ROOMS -->
+      <section class="max-w-7xl mx-auto px-6 py-16 text-center">
+        <!-- Heading -->
+        <div class="mb-10">
+          <h3 class="text-3xl text-white">Explore Chat Rooms</h3>
+          <p class="text-gray-400 text-sm mt-2">
+            Jump into topic-based anonymous conversations
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+          <!-- Tech Rooms -->
+          <div class="col-span-full text-gray-400 text-sm mt-4 text-left">
+            Technology & Innovation
+          </div>
+
+          <a href="/semiconductor" class="room-card">
+            <i data-lucide="cpu"></i>
+            <div class="text-left">
+              <h4>Semiconductor / IoT / Robotics</h4>
+              <p>Hardware, embedded & future tech</p>
+            </div>
+          </a>
+
+          <a href="/ai" class="room-card">
+            <i data-lucide="brain"></i>
+            <div class="text-left">
+              <h4>AI & Software Engineering</h4>
+              <p>ML, dev, tools & ideas</p>
+            </div>
+          </a>
+
+          <a href="/coding" class="room-card">
+            <i data-lucide="code"></i>
+            <div class="text-left">
+              <h4>Code Cave</h4>
+              <p>Debug, build & discuss</p>
+            </div>
+          </a>
+
+          <!-- Lifestyle -->
+          <div class="col-span-full text-gray-400 text-sm mt-6 text-left">
+            Lifestyle & Interests
+          </div>
+
+          <a href="/fitness" class="room-card">
+            <i data-lucide="dumbbell"></i>
+            <div class="text-left">
+              <h4>Fitness & Health</h4>
+              <p>Workouts & wellbeing</p>
+            </div>
+          </a>
+
+          <a href="/sports" class="room-card">
+            <i data-lucide="trophy"></i>
+            <div class="text-left">
+              <h4>Sports Arena</h4>
+              <p>Matches & debates</p>
+            </div>
+          </a>
+
+          <a href="/tv" class="room-card">
+            <i data-lucide="tv"></i>
+            <div class="text-left">
+              <h4>TV Shows & Movies</h4>
+              <p>Reviews & fandoms</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <footer class="border-t border-white/10 bg-black/40 backdrop-blur-xl">
+        <div
+          class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-sm text-gray-400"
+        >
+          <div>
+            <h5 class="text-white mb-2">PulseChat</h5>
+            <p>Anonymous real-time chatrooms powered by WebSockets.</p>
+          </div>
+
+          <div>
+            <h5 class="text-white mb-2">Legal</h5>
+            <a href="#" onclick="openPrivacy()">Privacy Policy</a><br />
+            <p
+              class="cursor-pointer"
+              onclick="
+                openInfo('Terms of Service', 'Use PulseChat responsibly...')
+              "
+            >
+              Terms of Service
+            </p>
+            <p
+              class="cursor-pointer"
+              onclick="
+                openInfo('Community Guidelines', 'Respect others. No abuse...')
+              "
+            >
+              Community Guidelines
+            </p>
+          </div>
+
+          <div id="contact">
+            <h5 class="text-white mb-2">Contact</h5>
+            <p>Email: 2003abinashdash@gmail.com</p>
+            <p>Linkedin: AbiDev2003</p>
+            <address>Cuttack, Odisha, India</address>
+          </div>
+
+          <div>
+            <h5 class="text-white mb-2">Location</h5>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=20.4625,85.8830"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block rounded-lg overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all cursor-pointer"
+            >
+              <iframe
+                width="100%"
+                height="180"
+                frameborder="0"
+                style="border: 0; pointer-events: none"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=85.8197%2C20.4478%2C85.9197%2C20.5278&layer=mapnik&marker=20.4625,85.8830"
+                allowfullscreen
+              >
+              </iframe>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-white/10 py-4 text-center text-xs text-gray-500"
+        >
+          © 2026 PulseChat. All rights reserved.
+        </div>
+      </footer>
+    </div>
+
+    <!-- modal HTML ********************* -->
+    <div
+      id="privacyModal"
+      class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-[#111] border border-white/10 rounded-2xl p-6 max-w-lg w-full text-gray-300"
+      >
+        <h4 class="text-xl text-white mb-4">Privacy Policy</h4>
+
+        <p class="text-sm text-gray-400 mb-4">
+          PulseChat is an anonymous platform. We do not store identities,
+          personal information, or chat histories. All sessions are temporary.
+        </p>
+
+        <button
+          onclick="closePrivacy()"
+          class="mt-4 px-4 py-2 bg-blue-600 rounded-lg"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- close Modal -->
+    <div
+      id="infoModal"
+      class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-[#111] border border-white/10 rounded-2xl p-6 max-w-lg w-full text-gray-300"
+      >
+        <h4 id="modalTitle" class="text-xl text-white mb-4"></h4>
+        <p id="modalText" class="text-sm text-gray-400"></p>
+
+        <button
+          onclick="closeInfo()"
+          class="mt-4 px-4 py-2 bg-blue-600 rounded-lg"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- create room modal -->
+    <div
+      id="createRoomModal"
+      class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-[#111] border border-white/10 rounded-2xl p-6 w-full max-w-md"
+      >
+        <h4 class="text-xl text-white mb-4">Create Custom Room</h4>
+
+        <input
+          id="roomInput"
+          type="text"
+          placeholder="Enter room name..."
+          class="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none"
+        />
+
+        <div class="flex justify-end gap-3 mt-4">
+          <button
+            onclick="closeCreateRoom()"
+            class="px-4 py-2 text-gray-400 hover:text-white"
+          >
+            Cancel
+          </button>
+
+          <button
+            onclick="createRoom()"
+            class="px-5 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg"
+          >
+            Create
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/animateBG.js"></script>
+    <script src="./js/features.js"></script>
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
