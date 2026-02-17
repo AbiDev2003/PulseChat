@@ -48,3 +48,20 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeCreateRoom();
 });
 
+// menu bar
+const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuLinks = document.querySelectorAll(".mobile-menu a, .mobile-menu button");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+  });
+
+  /* 🔥 Auto close on click */
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("show");
+    });
+  });
+  
+
